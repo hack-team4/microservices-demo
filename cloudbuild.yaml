@@ -70,11 +70,6 @@ steps:
   waitFor: ['-']
   args: ['build', '--tag=gcr.io/$PROJECT_ID/shippingservice:$TAG_NAME', '.']
   dir: 'src/shippingservice'
-- name: 'gcr.io/cloud-builders/docker'
-  id: 'test-docker-shippingservice'
-  waitFor: ['build-docker-shippingservice']
-  args: ['run', 'gcr.io/$PROJECT_ID/shippingservice:$TAG_NAME', 'go', 'test', '.']
-  dir: 'src/shippingservice'
 
 - name: 'gcr.io/cloud-builders/gsutil'
   id: 'copy-manifests'
