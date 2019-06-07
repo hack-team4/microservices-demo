@@ -81,5 +81,7 @@ steps:
   waitFor: ['-']
   args: ['cp', '-r', 'release/*', 'gs://$PROJECT_ID-kubernetes-manifests']
 
+options:
+  machineType: 'N1_HIGHCPU_8'
 timeout: 1200s
 images: ['gcr.io/$PROJECT_ID/productcatalogservice:$TAG_NAME', 'gcr.io/$PROJECT_ID/shippingservice:$TAG_NAME', 'gcr.io/$PROJECT_ID/recommendationservice:$TAG_NAME', 'gcr.io/$PROJECT_ID/emailservice:$TAG_NAME', 'gcr.io/$PROJECT_ID/paymentservice:$TAG_NAME', 'gcr.io/$PROJECT_ID/loadgenerator:$TAG_NAME', 'gcr.io/$PROJECT_ID/frontend:$TAG_NAME', 'gcr.io/$PROJECT_ID/currencyservice:$TAG_NAME', 'gcr.io/$PROJECT_ID/adservice:$TAG_NAME', 'gcr.io/$PROJECT_ID/cartservice:$TAG_NAME', 'gcr.io/$PROJECT_ID/checkoutservice:$TAG_NAME']
