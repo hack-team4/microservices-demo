@@ -1,4 +1,7 @@
 steps:
+- name: 'gcr.io/cloud-builders/gcloud'
+  waitFor: ['-']
+  args: ['beta', 'container', 'images', 'describe', 'gcr.io/$PROJECT_ID/adservice:v1.0.13', '--show-package-vulnerability']
 - name: 'gcr.io/cloud-builders/gradle'
   id: 'build-gradle-adservice'
   args: ['installDist']

@@ -32,7 +32,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: gcr.io/hackathon-242612/emailservice:v1.0.13
+        image: gcr.io/hackathon-242612/emailservice:v1.0.12
         ports:
         - containerPort: 8080
         env:
@@ -51,7 +51,7 @@ spec:
           value: "0"
         resources:
           requests:
-            cpu: 100m
+            cpu: 10m
             memory: 64Mi
           limits:
             cpu: 200m
@@ -85,7 +85,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: gcr.io/hackathon-242612/checkoutservice:v1.0.13
+          image: gcr.io/hackathon-242612/checkoutservice:v1.0.12
           ports:
           - containerPort: 5050
           readinessProbe:
@@ -113,7 +113,7 @@ spec:
           #   value: "jaeger-collector:14268"
           resources:
             requests:
-              cpu: 100m
+              cpu: 10m
               memory: 64Mi
             limits:
               cpu: 200m
@@ -148,7 +148,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: gcr.io/hackathon-242612/recommendationservice:v1.0.13
+        image: gcr.io/hackathon-242612/recommendationservice:v1.0.12
         ports:
         - containerPort: 8080
         readinessProbe:
@@ -168,7 +168,7 @@ spec:
           value: "0"
         resources:
           requests:
-            cpu: 100m
+            cpu: 10m
             memory: 220Mi
           limits:
             cpu: 200m
@@ -202,7 +202,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: gcr.io/hackathon-242612/frontend:v1.0.13
+          image: gcr.io/hackathon-242612/frontend:v1.0.12
           ports:
           - containerPort: 8080
           readinessProbe:
@@ -242,7 +242,7 @@ spec:
           #   value: "jaeger-collector:14268"
           resources:
             requests:
-              cpu: 100m
+              cpu: 10m
               memory: 64Mi
             limits:
               cpu: 200m
@@ -290,7 +290,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: gcr.io/hackathon-242612/paymentservice:v1.0.13
+        image: gcr.io/hackathon-242612/paymentservice:v1.0.12
         ports:
         - containerPort: 50051
         env:
@@ -304,7 +304,7 @@ spec:
             command: ["/bin/grpc_health_probe", "-addr=:50051"]
         resources:
           requests:
-            cpu: 100m
+            cpu: 10m
             memory: 64Mi
           limits:
             cpu: 200m
@@ -339,7 +339,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: gcr.io/hackathon-242612/productcatalogservice:v1.0.13
+        image: gcr.io/hackathon-242612/productcatalogservice:v1.0.12
         ports:
         - containerPort: 3550
         env:
@@ -356,7 +356,7 @@ spec:
 #            value: "jaeger-collector:14268"
         resources:
           requests:
-            cpu: 100m
+            cpu: 10m
             memory: 64Mi
           limits:
             cpu: 200m
@@ -391,7 +391,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: gcr.io/hackathon-242612/cartservice:v1.0.13
+        image: gcr.io/hackathon-242612/cartservice:v1.0.12
         ports:
         - containerPort: 7070
         env:
@@ -403,7 +403,7 @@ spec:
           value: "0.0.0.0"
         resources:
           requests:
-            cpu: 200m
+            cpu: 10m
             memory: 64Mi
           limits:
             cpu: 300m
@@ -468,7 +468,7 @@ spec:
           value: "10"
         resources:
           requests:
-            cpu: 300m
+            cpu: 10m
             memory: 256Mi
           limits:
             cpu: 500m
@@ -490,7 +490,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: gcr.io/hackathon-242612/currencyservice:v1.0.13
+        image: gcr.io/hackathon-242612/currencyservice:v1.0.12
         ports:
         - name: grpc
           containerPort: 7000
@@ -505,7 +505,7 @@ spec:
             command: ["/bin/grpc_health_probe", "-addr=:7000"]
         resources:
           requests:
-            cpu: 100m
+            cpu: 10m
             memory: 64Mi
           limits:
             cpu: 200m
@@ -539,7 +539,7 @@ spec:
     spec:
       containers:
       - name: server
-        image: gcr.io/hackathon-242612/shippingservice:v1.0.13
+        image: gcr.io/hackathon-242612/shippingservice:v1.0.12
         ports:
         - containerPort: 50051
         env:
@@ -557,7 +557,7 @@ spec:
 #            value: "jaeger-collector:14268"
         resources:
           requests:
-            cpu: 100m
+            cpu: 10m
             memory: 64Mi
           limits:
             cpu: 200m
@@ -608,9 +608,9 @@ spec:
         resources:
           limits:
             memory: 256Mi
-            cpu: 125m
-          requests:
             cpu: 70m
+          requests:
+            cpu: 10m
             memory: 200Mi
       volumes:
       - name: redis-data
@@ -645,7 +645,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: gcr.io/hackathon-242612/adservice:v1.0.13
+        image: gcr.io/hackathon-242612/adservice:v1.0.12
         ports:
         - containerPort: 9555
         env:
@@ -655,7 +655,7 @@ spec:
         #  value: "jaeger-collector:14268"
         resources:
           requests:
-            cpu: 200m
+            cpu: 10m
             memory: 180Mi
           limits:
             cpu: 300m
