@@ -5,4 +5,39 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '--tag=gcr.io/$PROJECT_ID/adservice:$TAG_NAME', '.']
   dir: 'src/adservice'
-images: ['gcr.io/$PROJECT_ID/adservice:$TAG_NAME']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '--tag=gcr.io/$PROJECT_ID/cartservice:$TAG_NAME', '.']
+  dir: 'src/cartservice'
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '--tag=gcr.io/$PROJECT_ID/checkoutservice:$TAG_NAME', '.']
+  dir: 'src/checkoutservice'
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '--tag=gcr.io/$PROJECT_ID/currencyservice:$TAG_NAME', '.']
+  dir: 'src/currencyservice'
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '--tag=gcr.io/$PROJECT_ID/emailservice:$TAG_NAME', '.']
+  dir: 'src/emailservice'
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '--tag=gcr.io/$PROJECT_ID/frontend:$TAG_NAME', '.']
+  dir: 'src/frontend'
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '--tag=gcr.io/$PROJECT_ID/loadgenerator:$TAG_NAME', '.']
+  dir: 'src/loadgenerator'
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '--tag=gcr.io/$PROJECT_ID/paymentservice:$TAG_NAME', '.']
+  dir: 'src/paymentservice'
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '--tag=gcr.io/$PROJECT_ID/productcatalogservice:$TAG_NAME', '.']
+  dir: 'src/productcatalogservice'
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '--tag=gcr.io/$PROJECT_ID/recommendationservice:$TAG_NAME', '.']
+  dir: 'src/recommendationservice'
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '--tag=gcr.io/$PROJECT_ID/shippingservice:$TAG_NAME', '.']
+  dir: 'src/shippingservice'
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['run', 'gcr.io/$PROJECT_ID/shippingservice:$TAG_NAME', 'go', 'test']
+  dir: 'src/shippingservice'
+- name: 'gcr.io/cloud-builders/gsutil'
+  args: ['cp', '-r', 'release/*', 'gs://$PROJECT_ID-kubernetes-manifests']
+images: ['gcr.io/$PROJECT_ID/productcatalogservice:$TAG_NAME', 'gcr.io/$PROJECT_ID/shippingservice:$TAG_NAME', 'gcr.io/$PROJECT_ID/recommendationservice:$TAG_NAME', 'gcr.io/$PROJECT_ID/emailservice:$TAG_NAME', 'gcr.io/$PROJECT_ID/paymentservice:$TAG_NAME', 'gcr.io/$PROJECT_ID/loadgenerator:$TAG_NAME', 'gcr.io/$PROJECT_ID/frontend:$TAG_NAME', 'gcr.io/$PROJECT_ID/currencyservice:$TAG_NAME', 'gcr.io/$PROJECT_ID/adservice:$TAG_NAME', 'gcr.io/$PROJECT_ID/cartservice:$TAG_NAME', 'gcr.io/$PROJECT_ID/checkoutservice:$TAG_NAME']
